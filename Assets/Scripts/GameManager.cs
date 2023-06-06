@@ -5,14 +5,19 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static string playerName;
     public Cat cat;
     public Dog dog;
     public Text timeCountText;
+    public Text playerNameText;
     public int timeCountValue;
     public static bool gameStatus;
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(GameManager.playerName);
+
+        playerNameText.text = playerName;
         StartCoroutine(Game(timeCountValue));
     }
 
