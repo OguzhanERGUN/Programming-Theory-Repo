@@ -7,8 +7,9 @@ public class Cat : Animal
 {
     private Rigidbody rbCat;
     public GameObject catTick;
+    public GameObject catShield;
     public string nameCat;
-    private int moveInfo = 0;
+    public int moveInfo = 0;
     public Vector3 power;
     [SerializeField] private Text healthTextCat;
 
@@ -25,12 +26,13 @@ public class Cat : Animal
     void Update()
     {
         GetActInput();
+        
     }
 
 
     public override void Defence()
     {
-        
+        catShield.SetActive(true);
     }
 
     public override void Attack(int damage)
@@ -38,7 +40,7 @@ public class Cat : Animal
         rbCat.velocity = power;
     }
 
-    private void TypeHealth()
+    public void TypeHealth()
     {
         healthTextCat.text = nameAnimal + " " +healthAnimal; 
     }
@@ -49,7 +51,7 @@ public class Cat : Animal
         {
             moveInfo = 1;
             catTick.SetActive(true);
-            Attack(1);
+            
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {

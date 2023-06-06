@@ -23,7 +23,10 @@ public class Animal : MonoBehaviour
             }
         }
     }
-
+    public void CloseDefenceTab(GameObject shield)
+    {
+        shield.SetActive(false);
+    }
     public virtual void Defence()
     {
 

@@ -7,8 +7,10 @@ public class Dog : Animal
 {
     private Rigidbody rbDog;
     public GameObject dogTick;
+    public GameObject dogShield;
+
     public string nameDog;
-    private int moveInfo = 0;
+    public int moveInfo = 0;
     public Vector3 power;
     [SerializeField] private Text healthTextDog;
     // Start is called before the first frame update
@@ -25,14 +27,14 @@ public class Dog : Animal
         GetActInput();
     }
 
-    private void TypeHealth()
+    public void TypeHealth()
     {
         healthTextDog.text = nameAnimal + " " + healthAnimal;
     }
 
     public override void Defence()
     {
-
+        dogShield.SetActive(true);
     }
 
     public override void Attack(int damage)
@@ -47,7 +49,7 @@ public class Dog : Animal
         {
             moveInfo = 1;
             dogTick.SetActive(true);
-            Attack(1);
+            
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
